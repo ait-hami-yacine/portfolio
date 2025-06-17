@@ -1,0 +1,1802 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1024">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .welcome-banner {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: max-content;
+        }
+        .welcome-highlight {
+            font-size: 2.2rem;
+            color: #ffffff;
+            background: rgba(0, 0, 50, 0.7);
+            padding: 15px 30px;
+            border-radius: 20px;
+            border: 2px solid #00d9ff;
+            box-shadow: 0 0 20px #00d9ff;
+            text-align: center;
+            text-shadow: 0 0 10px #00ffff;
+        }
+        .welcome-highlight {
+            font-size: 2.5rem;
+            color: #ffffff;
+            background: rgba(0, 0, 50, 0.6);
+            padding: 20px 30px;
+            border-radius: 15px;
+            border: 2px solid #00d9ff;
+            box-shadow: 0 0 25px #00d9ff;
+            text-align: center;
+            text-shadow: 0 0 10px #00ffff;
+            max-width: 90%;
+            margin: auto;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .photo-gauche {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            z-index: 999;
+        }
+        /* Global styles */
+                * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+                .hero {
+            width: 100%;
+            height: 100vh;
+            background: url('background.jpg') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 10;
+            border: 2px solid rgb(68, 0, 255);
+            display: inline-flex !important;
+
+        }
+        .contact-button {
+            display: flex;
+            align-items: center;
+            background-color: #00d9ff;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border: 2px solid transparent;
+        }
+
+        .contact-button:hover {
+            background-color: #008cff;
+            border-color: #ffffff;
+        }
+
+        .contact-button::before {
+            content: "📧";
+            margin-right: 10px;
+        }
+
+        .contact-button.phone::before {
+            content: "📞";
+            margin-right: 10px;
+        }
+
+        .contact-button.linkedin::before {
+            content: "🔗";
+            margin-right: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            resize: vertical; /* Permet de redimensionner le champ de texte */
+        }
+        button {
+            padding: 12px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        body {
+            padding-top: 40px;
+            background-color: #0c1329;
+        }
+
+        .navbar ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            z-index: 9999;
+            background-color: #0f0c29;
+        }
+
+        .navbar ul li {
+            margin: 0 15px;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding: 10px;
+            font-size: 1rem;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .navbar ul li a:hover {
+            color: #00d9ff;
+            text-shadow: 0 0 10px #00d9ff, 0 0 20px #008cff;
+        }
+
+        main {
+            background: linear-gradient(135deg, #0c1329, #2b3163, #4100ff);
+            color: white;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        main::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('circuit-overlay.png') repeat;
+            opacity: 0.2;
+            mix-blend-mode: overlay;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #00d9ff;
+            text-shadow: 0 0 10px #00d9ff, 0 0 20px #008cff;
+        }
+
+        section p {
+            font-size: 1.2rem;
+            color: #b0d5ff;
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.6;
+            text-shadow: 0 0 5px rgba(0, 217, 255, 0.5);
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        section {
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        @keyframes glow {
+            0% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+            100% { opacity: 0.3; }
+        }
+
+        main::before {
+            animation: glow 4s infinite ease-in-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fafafa;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        header {
+            background: url('pc-background.webp') no-repeat center center/cover;
+            color: white;
+            padding: 40px 20px 60px ;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .welcome-message {
+            font-size: 2rem;
+            font-weight: bold;
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #4100ff;
+            animation: fadeInDown 5s ease-out;
+        }
+
+        header img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            border: 5px solid white;
+            margin-top: 80px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            animation: slideIn 5s ease-out;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            animation: slideIn 2s ease-out;
+        }
+
+               .cv-button {
+    display: block;
+    margin: 20px auto;
+    background-color: #00d9ff;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.1rem;
+    box-shadow: 0 0 12px #00d9ff, 0 0 25px #008cff;
+    border: none;
+    animation: shakeRotate 1.2s infinite ease-in-out;
+    width: fit-content;
+}
+
+.cv-button:hover {
+    background-color: #008cff;
+    box-shadow: 0 0 15px #00ffff, 0 0 30px #00bfff;
+}
+
+/* Animation "vibration/rotation douce" */
+@keyframes shakeRotate {
+    0% { transform: rotate(0deg); }
+    20% { transform: rotate(-2deg); }
+    40% { transform: rotate(2deg); }
+    60% { transform: rotate(-2deg); }
+    80% { transform: rotate(2deg); }
+    100% { transform: rotate(0deg); }
+}
+
+
+        /* animation type "sonnerie" */
+        @keyframes shakeRotate {
+            0% { transform: rotate(0deg); }
+            20% { transform: rotate(-2deg); }
+            40% { transform: rotate(2deg); }
+            60% { transform: rotate(-2deg); }
+            80% { transform: rotate(2deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+
+        nav {
+            background: 0;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding: 10px;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #e91e63;
+        }
+
+        section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateY(-50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .skills-section {
+            padding: 60px 20px;
+            text-align: center;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .skills-section h2 {
+            font-size: 2.8rem;
+            color: #00d9ff;
+            text-shadow: 0 0 10px #00d9ff, 0 0 20px #008cff;
+            margin-bottom: 20px;
+        }
+
+        .skills-section .intro {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #b0d5ff;
+        }
+
+        .skills-box {
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+            background: rgba(0, 0, 50, 0.6);
+            border: 2px solid #00d9ff;
+            border-radius: 15px;
+            box-shadow: 0 0 20px #00d9ff;
+            backdrop-filter: blur(5px);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 1.25rem;
+            text-align: left;
+        }
+
+        .skills-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s;
+        }
+
+        .skills-list li:hover {
+            transform: translateX(5px);
+            color: #00ffff;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 10px #00d9ff; }
+            to { box-shadow: 0 0 30px #00ffff; }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+            .intro-glow {
+        font-size: 1.3rem;
+        font-weight: normal;
+        color: white;
+        text-align: center;
+        margin-bottom: 30px;
+        text-shadow: 0 0 8px #00d9ff, 0 0 12px #008cff;
+        animation: fadeInGlow 1.2s ease-out forwards;
+    }
+
+        @keyframes fadeInGlow {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        /* Hard-Skils */
+        .skill-detail {
+        display: none;
+        font-size: 0.95rem;
+        color: #ccc;
+        margin-top: 8px;
+        animation: fadeIn 0.4s ease-in-out;
+    }
+    
+
+    .skills-list li {
+        cursor: pointer;
+        flex-direction: column;
+        transition: 0.3s ease;
+        padding: 10px 0;
+    }
+
+    .skills-list li:hover {
+        color: #00ffff;
+        transform: translateX(5px);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+        .name-block {
+        background: rgba(0, 10, 50, 0.75);
+        padding: 20px 30px;
+        border: 2px solid #00d9ff;
+        border-radius: 15px;
+        text-align: center;
+        margin-top: 20px;
+        box-shadow: 0 0 15px #00d9ff;
+        display: inline-block;
+    }
+
+    .name-title {
+        font-size: 2.5rem;
+        color: #ffffff;
+        text-shadow: 0 0 10px #00d9ff;
+        margin-bottom: 10px;
+    }
+
+    .job-title {
+        font-size: 1.2rem;
+        color: #b0d5ff;
+        text-shadow: 0 0 5px #00bfff;
+    }
+    
+    .toggle-all-button {
+    background-color: #0400ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px #00d9ff, 0 0 20px #008cff;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-all-button:hover {
+    background-color: #008cff;
+}
+/* Hard-Skils fin */
+/* Projet */ 
+/* Projet : CSS corrigé pour affichage sur une ligne + clic unique */
+
+.project-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: #0c1329;
+  color: white;
+  border: 2px solid #00d9ff;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #00d9ff;
+  animation: sectionGlow 4s ease-in-out infinite;
+  margin: 40px auto;
+  max-width: 95%;
+  position: relative;
+  z-index: 0;
+  background: rgba(0, 0, 50, 0.4);
+}
+
+.project-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  z-index: 2;
+  position: relative;
+}
+
+.project-header h2 {
+  font-size: 2.5rem;
+  color: #00d9ff;
+  text-shadow: 0 0 10px #00d9ff;
+}
+
+.project-toggle-btn {
+  background-color: #00bfff;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00bfff, 0 0 20px #008cff;
+}
+
+.project-toggle-btn:hover {
+  background-color: #0099cc;
+}
+
+.project-line {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.project-card {
+  background-color: rgba(0, 0, 50, 0.7);
+  border: 2px solid #00d9ff;
+  border-radius: 15px;
+  padding: 20px;
+  width: 220px;
+  height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  box-shadow: 0 0 12px #00d9ff, 0 0 24px #008cff;
+  animation: glowBlue 4s ease-in-out infinite;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #00ffff;
+}
+
+.project-card h3 {
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.project-slogan {
+  color: #00ffff;
+  font-style: italic;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.project-description {
+  display: none;
+  font-size: 0.85rem;
+  color: #b0d5ff;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.arrow {
+  display: none; /* Supprimée visuellement */
+}
+
+@keyframes glowBlue {
+  0% { box-shadow: 0 0 12px #00d9ff, 0 0 24px #008cff; }
+  50% { box-shadow: 0 0 20px #00ffff, 0 0 30px #00bfff; }
+  100% { box-shadow: 0 0 12px #00d9ff, 0 0 24px #008cff; }
+}
+
+@keyframes sectionGlow {
+  0% { box-shadow: 0 0 15px #00d9ff; }
+  50% { box-shadow: 0 0 30px #00ffff; }
+  100% { box-shadow: 0 0 15px #00d9ff; }
+}
+.skill-description {
+  display: none; /* conservé jusqu’à l’ouverture */
+  font-size: 0.85rem;
+  color: #b0d5ff;
+  text-align: left;
+  margin-top: 10px;
+  word-wrap: break-word; /* Force les mots longs à revenir à la ligne */
+  overflow-wrap: break-word; /* Prend aussi en compte les mots entiers longs */
+  hyphens: auto; /* Ajoute un tiret si besoin lors du retour à la ligne */
+}
+
+
+
+/*Projet */
+
+/* Formation début */
+
+/* Bloc Formations & Parcours : CSS moderne avec clic et détails */
+
+.formations-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: #0c1329;
+  color: white;
+  border: 2px solid #00d9ff;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #00d9ff;
+  animation: sectionGlow 4s ease-in-out infinite;
+  margin: 40px auto;
+  max-width: 95%;
+  background: rgba(0, 0, 50, 0.4);
+  position: relative;
+  z-index: 0;
+}
+
+.formations-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  z-index: 2;
+  position: relative;
+}
+
+.formations-header h2 {
+  font-size: 2.5rem;
+  color: #00d9ff;
+  text-shadow: 0 0 10px #00d9ff;
+}
+
+.formations-toggle-btn {
+  background-color: #00bfff;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00bfff, 0 0 20px #008cff;
+}
+
+.formations-toggle-btn:hover {
+  background-color: #0099cc;
+}
+
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre les blocs */
+  gap: 30px;
+}
+
+.timeline-item {
+  width: 90%;                /* au lieu de 100% */
+  max-width: 800px;          /* limite la taille */
+  margin: 0 auto;
+  background: rgba(0, 0, 50, 0.7);
+  border: 2px solid #00d9ff;
+  border-radius: 15px;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 12px #00d9ff, 0 0 24px #008cff;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+}
+.timeline-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #00ffff;
+}
+
+.timeline-date {
+  font-size: 1.2rem;
+  color: #00ffff;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.timeline-location {
+  color: #00d9ff;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.timeline-description {
+  display: none;
+  font-size: 0.95rem;
+  color: #b0d5ff;
+  text-align: left;
+  margin-top: 10px;
+}
+
+@keyframes sectionGlow {
+  0% { box-shadow: 0 0 15px #00d9ff; }
+  50% { box-shadow: 0 0 30px #00ffff; }
+  100% { box-shadow: 0 0 15px #00d9ff; }
+}
+
+/*Formations Fin */ 
+/* début soft-skils */
+
+/* === Bloc Soft-skills final : 2 lignes horizontales avec 5 blocs par ligne, clic & détails === */
+/* === Bloc Soft Skills - Style final et complet === */
+.skills-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(0, 0, 50, 0.4);
+  color: white;
+  border: 2px solid #00d9ff;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #00d9ff;
+  animation: sectionGlow 4s ease-in-out infinite;
+  margin: 40px auto;
+  max-width: 1200px;
+  position: relative;
+  z-index: 0;
+}
+
+.skills-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  z-index: 2;
+  position: relative;
+}
+
+.skills-header h2 {
+  font-size: 2.5rem;
+  color: #00d9ff;
+  text-shadow: 0 0 10px #00d9ff;
+}
+
+.skills-toggle-btn {
+  background-color: #00bfff;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00bfff, 0 0 20px #008cff;
+  transition: background-color 0.3s ease;
+}
+
+.skills-toggle-btn:hover {
+  background-color: #0099cc;
+}
+
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.skills-line {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 20px;
+  width: 100%;
+  max-width: 1100px;
+  box-sizing: border-box;
+}
+
+.skill-card {
+  background: rgba(0, 0, 50, 0.7);
+  border: 2px solid #00d9ff;
+  border-radius: 15px;
+  padding: 20px;
+  width: 220px;
+  min-height: 250px;
+  max-height: 350px; /* limite la hauteur max */
+  cursor: pointer;
+  box-shadow: 0 0 12px #00d9ff, 0 0 24px #008cff;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  animation: glowBlue 4s ease-in-out infinite;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #00ffff;
+}
+
+.skill-card h3 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.skill-slogan {
+  color: #00ffff;
+  font-style: italic;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.skill-description {
+  display: none;
+  font-size: 0.85rem;
+  color: #b0d5ff;
+  text-align: left;
+  margin-top: 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+/* Barre de défilement fine et stylée (optionnel) */
+.skill-description::-webkit-scrollbar {
+  width: 5px;
+}
+.skill-description::-webkit-scrollbar-thumb {
+  background: #00d9ff;
+  border-radius: 5px;
+}
+
+@keyframes glowBlue {
+  0% { box-shadow: 0 0 12px #00d9ff, 0 0 24px #008cff; }
+  50% { box-shadow: 0 0 20px #00ffff, 0 0 30px #00bfff; }
+  100% { box-shadow: 0 0 12px #00d9ff, 0 0 24px #008cff; }
+}
+
+@keyframes sectionGlow {
+  0% { box-shadow: 0 0 15px #00d9ff; }
+  50% { box-shadow: 0 0 30px #00ffff; }
+  100% { box-shadow: 0 0 15px #00d9ff; }
+}
+
+
+/* Fin soft-Skils */
+/* Début experience */
+/* Scroll fluide et décalage propre à la section experience */
+html {
+  scroll-behavior: smooth;
+}
+
+#experience {
+  scroll-margin-top: 100px; /* ajuste selon la hauteur de ton header fixe */
+}
+
+/* Section Expérience */
+.experience-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(0, 0, 50, 0.4);
+  color: white;
+  border: 2px solid #00d9ff;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #00d9ff;
+  animation: sectionGlow 4s ease-in-out infinite;
+  margin: 40px auto;
+  max-width: 95%;
+  position: relative;
+  z-index: 0;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.experience-header h2 {
+  font-size: 2.5rem;
+  color: #00d9ff;
+  text-shadow: 0 0 10px #00d9ff;
+}
+
+.experience-toggle-btn {
+  background-color: #00bfff;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00bfff, 0 0 20px #008cff;
+  transition: background-color 0.3s;
+}
+
+.experience-toggle-btn:hover {
+  background-color: #0099cc;
+}
+
+.experience-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.experience-card {
+  background: rgba(0, 0, 50, 0.7);
+  border: 2px solid #00d9ff;
+  border-radius: 15px;
+  padding: 20px;
+  width: 300px;
+  min-height: 220px;
+  cursor: pointer;
+  box-shadow: 0 0 12px #00d9ff, 0 0 24px #008cff;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  animation: glowBlue 4s ease-in-out infinite;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #00ffff;
+}
+
+.experience-card h3 {
+  color: #ffffff;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.experience-slogan {
+  color: #00ffff;
+  font-style: italic;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.experience-description {
+  display: none;
+  font-size: 0.9rem;
+  color: #b0d5ff;
+  text-align: left;
+  margin-top: 10px;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Animations */
+@keyframes glowBlue {
+  0% { box-shadow: 0 0 12px #00d9ff, 0 0 24px #008cff; }
+  50% { box-shadow: 0 0 20px #00ffff, 0 0 30px #00bfff; }
+  100% { box-shadow: 0 0 12px #00d9ff, 0 0 24px #008cff; }
+}
+
+@keyframes sectionGlow {
+  0% { box-shadow: 0 0 15px #00d9ff; }
+  50% { box-shadow: 0 0 30px #00ffff; }
+  100% { box-shadow: 0 0 15px #00d9ff; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Fin Expérience */ 
+/* Début loisirs */
+.loisirs-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(0, 0, 50, 0.4);
+  color: white;
+  border: 2px solid #00d9ff;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #00d9ff;
+  animation: sectionGlow 4s ease-in-out infinite;
+  margin: 40px auto;
+  max-width: 95%;
+  position: relative;
+  z-index: 0;
+}
+
+.loisirs-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  z-index: 2;
+  position: relative;
+}
+
+.loisirs-header h2 {
+  font-size: 2.5rem;
+  color: #00d9ff;
+  text-shadow: 0 0 10px #00d9ff;
+}
+
+.loisirs-toggle-btn {
+  background-color: #00bfff;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00bfff, 0 0 20px #008cff;
+  transition: background-color 0.3s ease;
+}
+
+.loisirs-toggle-btn:hover {
+  background-color: #0099cc;
+}
+
+.loisirs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+.loisirs-line {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.loisir-card {
+  background: rgba(0, 0, 50, 0.7);
+  border: 2px solid #00d9ff;
+  border-radius: 15px;
+  padding: 20px;
+  width: 220px;
+  height: 220px;
+  cursor: pointer;
+  box-shadow: 0 0 12px #00d9ff, 0 0 24px #008cff;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  animation: glowBlue 4s ease-in-out infinite;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.loisir-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #00ffff;
+}
+
+.loisir-card h3 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.loisir-slogan {
+  color: #00ffff;
+  font-style: italic;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.loisir-description {
+  display: none;
+  font-size: 0.85rem;
+  color: #b0d5ff;
+  text-align: left;
+  margin-top: 10px;
+  word-wrap: break-word;
+}
+
+@keyframes glowBlue {
+  0% { box-shadow: 0 0 12px #00d9ff, 0 0 24px #008cff; }
+  50% { box-shadow: 0 0 20px #00ffff, 0 0 30px #00bfff; }
+  100% { box-shadow: 0 0 12px #00d9ff, 0 0 24px #008cff; }
+}
+
+@keyframes sectionGlow {
+  0% { box-shadow: 0 0 15px #00d9ff; }
+  50% { box-shadow: 0 0 30px #00ffff; }
+  100% { box-shadow: 0 0 15px #00d9ff; }
+}
+.loisir-description {
+  display: none; /* conservé jusqu’à l’ouverture */
+  font-size: 0.85rem;
+  color: #b0d5ff;
+  text-align: left;
+  margin-top: 10px;
+  word-wrap: break-word; /* Force les mots longs à revenir à la ligne */
+  overflow-wrap: break-word; /* Prend aussi en compte les mots entiers longs */
+  hyphens: auto; /* Ajoute un tiret si besoin lors du retour à la ligne */
+}
+.loisir-card {
+  width: 220px; /* largeur fixe pour alignement uniforme */
+  height: auto; /* permet d’adapter la hauteur au contenu */
+  overflow: hidden; /* empêche le dépassement visuel */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+
+/*Fin loisirs */
+/* Code pour l'affichage */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .skills-line,
+  .experience-container,
+  .project-line {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .skill-card,
+  .experience-card,
+  .project-card {
+    width: 90%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .skills-header,
+  .experience-header,
+  .project-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  header nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  header nav a {
+    display: block;
+    padding: 10px 0;
+  }
+
+  h1, h2, h3 {
+    font-size: 1.5rem;
+  }
+
+  .skills-section,
+  .experience-section,
+  .project-section {
+    padding: 30px 10px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+    </style>
+</head>
+<body>
+    
+    <header id="accueil" class="hero-section">
+        
+        <div class="ouverlay"></div>
+        <div class="welcome-banner">
+        <h1 class="welcome-highlight">Bienvenue dans mon univers numérique !</h1>
+        </div>
+        <img src="photo.jpg" alt="Ma Photo" class="photo-profil fade-in">
+        <div class="name-block">
+        <h1 class="name-title">Yacine AIT HAMI</h1>
+        <p class="job-title">Développeur Informatique</p>
+        </div>
+        <a href="CV__Yacine__AIT-HAMI-.pdf" class="cv-button" download>Télécharger mon CV</a>
+        <div class="ouverlay"></div>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#hard-skills">Hard-skills</a></li>
+            <li><a href="#soft-skills">Soft-skills</a></li>
+            <li><a href="#formations">Formations</a></li>
+            <li><a href="#experiences">Expériences</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#loisirs">Loisirs</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        </section>
+     <section id="hard-skills" class="skills-section">
+    <h2>Hard-skills</h2>
+    <p class="intro-glow">Compétences techniques développées au fil de mes projets académiques et personnels :</p>
+
+    <!-- BOUTON GLOBAL -->
+    <button class="toggle-all-button" onclick="toggleAllSkills()">Afficher les détails</button>
+
+    <div class="skills-box">
+        <ul class="skills-list">
+            <li onclick="toggleDetail(this)">
+                💻 Installation de systèmes Linux (Xubuntu, Debian)
+                <p class="skill-detail">Installation complète à partir de zéro : partitionnement, configuration réseau, gestion des utilisateurs, mises à jour système, et installation d'outils de développement en ligne de commande.</p>
+            </li>
+            <li onclick="toggleDetail(this)">
+                🌐 Configuration de serveurs web (Apache2)
+                <p class="skill-detail">Déploiement de serveurs web Apache, activation de modules comme <code>userdir</code>, gestion des fichiers d'index et des répertoires personnels d'utilisateurs (public_html).</p>
+            </li>
+            <li onclick="toggleDetail(this)">
+                🛠️ Développement web avec PHP, HTML, CSS
+                <p class="skill-detail">Création d'interfaces web avec HTML/CSS, logique dynamique avec PHP, manipulation de formulaires, affichage conditionnel et gestion des erreurs côté serveur.</p>
+            </li>
+            <li onclick="toggleDetail(this)">
+                🔗 Interaction PHP & MariaDB via PDO
+                <p class="skill-detail">Connexion sécurisée à MariaDB avec PDO, requêtes préparées, création de bases, tables, insertion et affichage dynamique de données dans des pages web.</p>
+            </li>
+            <li onclick="toggleDetail(this)">
+                🧬 Bases de données : SQL, PostgreSQL, MariaDB
+                <p class="skill-detail">Écriture de requêtes SQL (SELECT, INSERT, GRANT), création d'utilisateurs, gestion des permissions et des relations entre tables sous PostgreSQL et MariaDB.</p>
+            </li>
+            <li onclick="toggleDetail(this)">
+                🛰️ Services réseau : FTP, SSH, HTTP
+                <p class="skill-detail">Installation et configuration de serveurs FTP (vsftpd), services SSH sécurisés, ports personnalisés, gestion des utilisateurs locaux et anonymes.</p>
+            </li>
+            <li onclick="toggleDetail(this)">
+                📡 Analyse réseau avec Wireshark
+                <p class="skill-detail">Capture et analyse de trames réseau, décodage des protocoles (HTTP, FTP), identification de mots de passe codés en base64, compréhension des encapsulations réseau.</p>
+            </li>
+            <li onclick="toggleDetail(this)">
+                👨‍💻 Programmation Java orientée objet
+                <p class="skill-detail">Modélisation UML et implémentation Java de jeux interactifs (ex : échecs), utilisation de classes abstraites, héritage, polymorphisme, logique de validation métier.</p>
+            </li>
+            <li onclick="toggleDetail(this)">
+                📐 Modélisation UML : diagrammes de classes
+                <p class="skill-detail">Construction de diagrammes de classes clairs avec associations, héritages, méthodes, attributs, réflexion orientée objet appliquée à des systèmes réels.</p>
+            </li>
+            <li onclick="toggleDetail(this)">
+                🔍 Débogage PHP/Java & tests
+                <p class="skill-detail">Activation du mode debug PHP, affichage des erreurs, tests de scripts web et programmes Java depuis le terminal avec affichage en temps réel des erreurs.</p>
+            </li>
+            <li onclick="toggleDetail(this)">
+                🖥️ Virtualisation : VirtualBox & Marionnet
+                <p class="skill-detail">Utilisation de machines virtuelles via VirtualBox, déploiement d'environnements Marionnet pour simuler des réseaux virtuels et exécuter des TP réseau complets.</p>
+            </li>
+            <li onclick="toggleDetail(this)">
+                🧑‍💻 Scripts Shell & commandes Linux
+                <p class="skill-detail">Maîtrise des scripts bash pour automatiser les tâches, gestion de fichiers, droits, utilisateurs, et interaction avec le système via le terminal.</p>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section id="soft-skills" class="skills-section">
+  <div class="skills-header">
+    <h2>Soft-skills</h2>
+    <button class="skills-toggle-btn" onclick="toggleAllSoftSkills()">Afficher les détails</button>
+  </div>
+
+  <div class="skills-container">
+    <!-- Première ligne -->
+    <div class="skills-line">
+      <div class="skill-card" onclick="toggleSoftSkill(this)">
+        <h3>💡 Résolution de problèmes</h3>
+        <p class="skill-slogan">Trouver des solutions créatives et efficaces</p>
+        <p class="skill-description">
+          Capacité à analyser rapidement une situation complexe et à proposer des solutions pratiques et innovantes.
+        </p>
+      </div>
+      <div class="skill-card" onclick="toggleSoftSkill(this)">
+        <h3>🗣️ Communication claire</h3>
+        <p class="skill-slogan">Expliquer des concepts techniques simplement</p>
+        <p class="skill-description">
+          Bonne capacité à transmettre des idées de manière simple, facilitant la collaboration.
+        </p>
+      </div>
+      <div class="skill-card" onclick="toggleSoftSkill(this)">
+        <h3>🤝 Travail en équipe</h3>
+        <p class="skill-slogan">Soutenir et collaborer avec les autres</p>
+        <p class="skill-description">
+          Esprit de coopération et écoute active pour atteindre les objectifs communs.
+        </p>
+      </div>
+      <div class="skill-card" onclick="toggleSoftSkill(this)">
+        <h3>⏱️ Gestion du temps</h3>
+        <p class="skill-slogan">Prioriser et respecter les délais</p>
+        <p class="skill-description">
+          Organisation rigoureuse et gestion des priorités pour livrer un travail de qualité dans les temps.
+        </p>
+      </div>
+      <div class="skill-card" onclick="toggleSoftSkill(this)">
+        <h3>🔍 Curiosité et apprentissage</h3>
+        <p class="skill-slogan">Toujours prêt à apprendre</p>
+        <p class="skill-description">
+          Volonté constante d’apprendre de nouvelles technologies et de s’adapter.
+        </p>
+      </div>
+    </div>
+
+    <!-- Deuxième ligne -->
+    <div class="skills-line">
+      <div class="skill-card" onclick="toggleSoftSkill(this)">
+        <h3>📅 Organisation et planification</h3>
+        <p class="skill-slogan">Savoir s’organiser pour être efficace</p>
+        <p class="skill-description">
+          Capacité à établir des priorités et planifier les tâches pour mener à bien les projets.
+        </p>
+      </div>
+      <div class="skill-card" onclick="toggleSoftSkill(this)">
+        <h3>👂 Écoute active</h3>
+        <p class="skill-slogan">Comprendre les besoins des autres</p>
+        <p class="skill-description">
+          Qualité d’écoute et de compréhension, favorisant un environnement positif.
+        </p>
+      </div>
+      <div class="skill-card" onclick="toggleSoftSkill(this)">
+        <h3>🌟 Adaptabilité</h3>
+        <p class="skill-slogan">S’ajuster aux changements rapidement</p>
+        <p class="skill-description">
+          Capacité à s’adapter aux nouveaux outils et contextes pour rester performant.
+        </p>
+      </div>
+      <div class="skill-card" onclick="toggleSoftSkill(this)">
+        <h3>💪 Persévérance</h3>
+        <p class="skill-slogan">Ne jamais abandonner</p>
+        <p class="skill-description">
+          Détermination et motivation à progresser même face aux obstacles.
+        </p>
+      </div>
+      <div class="skill-card" onclick="toggleSoftSkill(this)">
+        <h3>💼 Sens de l’initiative</h3>
+        <p class="skill-slogan">Proposer et agir</p>
+        <p class="skill-description">
+          Capacité à prendre des initiatives pour faire avancer les projets.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+        <section id="formations" class="formations-section">
+  <div class="formations-header">
+    <h2>Formations & Parcours</h2>
+    <button class="formations-toggle-btn" onclick="toggleAllFormations()">Afficher tous les détails</button>
+  </div>
+
+  <div class="timeline-container">
+    <div class="timeline-item" onclick="toggleFormation(this)">
+      <div class="timeline-date">2024 – Aujourd’hui</div>
+      <div class="timeline-content">
+        <h3>BUT Informatique</h3>
+        <p class="timeline-location">IUT de Villetaneuse – Université Sorbonne Paris Nord</p>
+        <p class="timeline-description">
+          Au cours de ma formation à l’IUT de Villetaneuse – Université Sorbonne Paris Nord, j’ai acquis des compétences solides en développement orienté objet, conception d’interfaces intuitives et ergonomiques, ainsi qu’en modélisation de graphes pour l’optimisation des données. J’ai exploré la conception de bases de données performantes, la compréhension des systèmes d’exploitation et l’assurance qualité logicielle. Ces enseignements m’ont permis de développer une approche rigoureuse et créative, avec un esprit critique pour concevoir des solutions fiables et innovantes.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item" onclick="toggleFormation(this)">
+      <div class="timeline-date">2023 – 2024</div>
+      <div class="timeline-content">
+        <h3>1ère année Génie Électrique et Électronique</h3>
+        <p class="timeline-location">Université de Boumerdes – Algérie</p>
+        <p class="timeline-description">
+         Durant ma première année au sein de l’Institut de Génie Électrique et Électronique de l’Université de Boumerdes, j’ai suivi un cursus intégralement en anglais, consolidant ainsi mes compétences linguistiques techniques. J’ai approfondi mes connaissances en mathématiques appliquées, en algorithmes fondamentaux et en programmation en langage C, tout en explorant les concepts essentiels de l’électronique numérique. Cette formation a développé mon esprit d’analyse et ma capacité à résoudre des problèmes complexes avec précision et créativité.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item" onclick="toggleFormation(this)">
+      <div class="timeline-date">2022 – 2023</div>
+      <div class="timeline-content">
+        <h3>Baccalauréat – Mathématiques</h3>
+        <p class="timeline-location">Mention Très Bien – Moyenne : 16,15</p>
+        <p class="timeline-description">
+           Mon parcours au lycée s’est distingué par une spécialisation en mathématiques, consolidant mes compétences analytiques et logiques à travers des modules avancés en mathématiques pures et appliquées. L’étude approfondie des concepts physiques a également renforcé ma compréhension scientifique et ma capacité à relier les notions abstraites à des applications concrètes. Cette base académique solide a jeté les fondations d’une réflexion structurée, de la rigueur et d’une curiosité continue – des qualités essentielles pour réussir dans le domaine informatique.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Début Expérience-->
+<section id="experiences" class="experience-section">
+  <div class="experience-header">
+    <h2>Mon Expérience Professionnelle</h2>
+    <button class="experience-toggle-btn" onclick="toggleAllExperience()">Afficher les détails</button>
+  </div>
+
+  <div class="experience-container">
+    <div class="experience-card" onclick="toggleExperience(this)">
+      <h3>Stage en entreprise</h3>
+      <p class="experience-slogan">Une première immersion dans le monde professionnel</p>
+      <p class="experience-description">
+        J’ai eu l’opportunité d’effectuer un stage au sein d’une entreprise partenaire de l’Institut de Génie Électrique et Électronique.
+        Cette première expérience professionnelle m’a permis de découvrir le fonctionnement interne d’une entreprise, les attentes et
+        les contraintes du monde professionnel. J’ai participé à des projets concrets où j’ai pu appliquer mes compétences en
+        développement informatique et résoudre des problèmes techniques. Travailler dans un environnement collaboratif m’a permis
+        de renforcer mon adaptabilité, ma capacité d’apprentissage rapide et ma motivation à progresser avec des professionnels
+        expérimentés.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Fin Expérience-->
+
+
+        <section id="projets" class="project-section">
+  <div class="project-header">
+    <h2>Mes Projets</h2>
+    <button class="project-toggle-btn" onclick="toggleAllProjects()">Afficher les détails des projets</button>
+  </div>
+
+  <!-- Ligne 1 -->
+  <div class="project-line">
+    <div class="project-card" onclick="toggleProject(this)">
+      <h3>SAE203 - Serveurs Réseaux</h3>
+      <p class="project-slogan">Déploiement d’un serveur web complet</p>
+      <p class="project-description">Installation d’un environnement LAMP avec MariaDB, Apache, PHP, création d’un site perso avec authentification, gestion de base de données.</p>
+    </div>
+
+    <div class="project-card" onclick="toggleProject(this)">
+      <h3>SAE JAVA - Échecs</h3>
+      <p class="project-slogan">Jouez aux échecs avec un arbitre numérique</p>
+      <p class="project-description">Implémentation d’un jeu d’échecs en Java avec modélisation UML complète. Prise en charge des règles, validation des coups, tour par tour, sans interface graphique.</p>
+    </div>
+
+    <div class="project-card" onclick="toggleProject(this)">
+      <h3>Analyse Python</h3>
+      <p class="project-slogan">Data science avec Jupyter & Python</p>
+      <p class="project-description">Analyse de données avec pandas et matplotlib, manipulation de DataFrame, visualisation et traitements statistiques via un notebook interactif.</p>
+    </div>
+
+    <div class="project-card" onclick="toggleProject(this)">
+      <h3>Base de Données Web</h3>
+      <p class="project-slogan">Une base vivante dans votre navigateur</p>
+      <p class="project-description">Connexion PHP/MariaDB via PDO, affichage dynamique de tables, gestion d’utilisateurs, insertion sécurisée, affichage dans une interface web personnalisée.</p>
+    </div>
+  </div>
+
+  <!-- Ligne 2 : Nouveaux projets -->
+  <div class="project-line">
+    <div class="project-card" onclick="toggleProject(this)">
+      <h3>Gestion de Projet</h3>
+      <p class="project-slogan">Organisation d’un séjour pédagogique</p>
+      <p class="project-description">Planification complète d’un séjour : budget, ressources, livrables, rôles, rétroplanning, Gantt. Gestion d’équipe et communication.</p>
+    </div>
+
+    <div class="project-card" onclick="toggleProject(this)">
+      <h3>Cybersécurité Réseau</h3>
+      <p class="project-slogan">Analyse et sécurisation réseau</p>
+      <p class="project-description">Utilisation de Wireshark pour analyser le trafic réseau, détection d’intrusions, configuration de pare-feux et pratiques de sécurisation FTP/SSH.</p>
+    </div>
+
+    <div class="project-card" onclick="toggleProject(this)">
+      <h3>Développement Web Dynamique</h3>
+      <p class="project-slogan">Interface web moderne</p>
+      <p class="project-description">Création d’un mini-site web avec HTML, CSS, PHP et JavaScript, interactions dynamiques avec base de données, validation de formulaires.</p>
+    </div>
+
+    <div class="project-card" onclick="toggleProject(this)">
+      <h3>Mini-projet Arduino</h3>
+      <p class="project-slogan">Contrôle d’un feu tricolore</p>
+      <p class="project-description">Programmation en C d’un feu tricolore intelligent avec Arduino, temporisation, boucle conditionnelle et capteurs de présence simulés.</p>
+    </div>
+  </div>
+</section>
+
+
+
+        <section id="loisirs" class="loisirs-section">
+  <div class="loisirs-header">
+    <h2>Mes Loisirs</h2>
+    <button class="loisirs-toggle-btn" onclick="toggleAllLoisirs()">Afficher tous les détails</button>
+  </div>
+
+  <div class="loisirs-container">
+    <div class="loisirs-line">
+      <div class="loisir-container">
+    <div class="loisir-card" onclick="toggleLoisir(this)">
+      <h3>🌿 Découverte de la nature et des paysages</h3>
+      <p class="loisir-slogan">S’émerveiller de la beauté de l’environnement</p>
+      <p class="loisir-description">
+        J’aime explorer de nouveaux paysages, me promener en pleine nature et capturer la diversité des écosystèmes avec mon appareil photo. Cela me permet de me ressourcer et de cultiver ma curiosité pour les merveilles naturelles.
+      </p>
+    </div>
+  </div>
+      <div class="loisir-card" onclick="toggleLoisir(this)">
+        <h3>📚 Lecture</h3>
+        <p class="loisir-slogan">S'évader et apprendre</p>
+        <p class="loisir-description">La lecture me permet d'élargir mes horizons, d'explorer de nouvelles idées et de nourrir ma curiosité, que ce soit à travers des romans ou des ouvrages techniques.</p>
+      </div>
+      <div class="loisir-card" onclick="toggleLoisir(this)">
+        <h3>⚽ Sport</h3>
+        <p class="loisir-slogan">Bouger et se défouler</p>
+        <p class="loisir-description">Pratiquer régulièrement le football et le jogging me permet de rester actif, de renforcer mon esprit d'équipe et de gérer le stress.</p>
+      </div>
+      <div class="loisir-card" onclick="toggleLoisir(this)">
+        <h3>🌍 Voyages</h3>
+        <p class="loisir-slogan">Découvrir et m’ouvrir au monde</p>
+        <p class="loisir-description">Explorer de nouveaux pays, leurs cultures et leurs paysages me motive à rester curieux et à apprendre en continu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Vous pouvez me contacter via les moyens suivants :</p>
+            <div class="contact-buttons">
+                <a href="mailto:aithamiyacinee@gmail.com" class="contact-button" title="Envoyer un email">
+                    Email
+                </a>
+                <a href="tel:+33699561050" class="contact-button phone" title="Appeler par téléphone">
+                    Téléphone
+                </a>
+                <a href="https://www.linkedin.com/in/yacine-ait-hami" class="contact-button linkedin" target="_blank" title="Visiter mon LinkedIn">
+                    LinkedIn
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Yacine AIT HAMI. Tous droits réservés.</p>
+    </footer>
+    <script>
+        /*Hard-Skils */
+    function toggleDetail(item) {
+        const detail = item.querySelector(".skill-detail");
+        detail.style.display = detail.style.display === "block" ? "none" : "block";
+    }
+    function toggleDetail(item) {
+        const detail = item.querySelector(".skill-detail");
+        detail.style.display = (detail.style.display === "block") ? "none" : "block";
+    }
+
+    function toggleAllSkills() {
+        const allDetails = document.querySelectorAll(".skill-detail");
+        const allVisible = [...allDetails].every(detail => detail.style.display === "block");
+
+        allDetails.forEach(detail => {
+            detail.style.display = allVisible ? "none" : "block";
+        });
+
+        const button = document.querySelector(".toggle-all-button");
+        button.textContent = allVisible ? "Afficher les détails" : "Masquer les détails";
+    }
+    /* Fin Hard Skils */ 
+    /* Projet */
+function toggleProject(card) {
+  const desc = card.querySelector(".project-description");
+  if (!desc) return;
+
+  // Fermer les autres descriptions
+  document.querySelectorAll(".project-description").forEach(d => {
+    if (d !== desc) d.style.display = "none";
+  });
+
+  // Toggle celle cliquée
+  desc.style.display = (desc.style.display === "block") ? "none" : "block";
+}
+
+function toggleAllProjects() {
+  const all = document.querySelectorAll(".project-description");
+  const allVisible = [...all].every(p => p.style.display === "block");
+
+  all.forEach(p => {
+    p.style.display = allVisible ? "none" : "block";
+  });
+
+  const btn = document.querySelector(".project-toggle-btn");
+  if (btn) {
+    btn.textContent = allVisible ? "Afficher les détails des projets" : "Masquer les détails des projets";
+  }
+
+}
+  
+
+/* Fin Projet */
+/* début Formations */
+function toggleFormation(item) {
+  const all = document.querySelectorAll(".timeline-description");
+  const current = item.querySelector(".timeline-description");
+  const isVisible = current.style.display === "block";
+
+  // Masquer toutes les descriptions
+  all.forEach(desc => desc.style.display = "none");
+
+  // Afficher celle cliquée uniquement si elle était cachée
+  if (!isVisible) {
+    current.style.display = "block";
+  }
+}
+
+function toggleAllFormations() {
+  const all = document.querySelectorAll(".timeline-description");
+  const allVisible = [...all].every(desc => desc.style.display === "block");
+
+  all.forEach(desc => {
+    desc.style.display = allVisible ? "none" : "block";
+  });
+
+  const btn = document.querySelector(".formations-toggle-btn");
+  if (btn) {
+    btn.textContent = allVisible
+      ? "Afficher tous les détails"
+      : "Masquer tous les détails";
+  }
+}
+/* Debut soft skils */
+function toggleSoftSkill(card) {
+  const desc = card.querySelector(".skill-description");
+  // Vérifie s’il y a une description
+  if (desc) {
+    // Alterne l’affichage
+    desc.style.display = (desc.style.display === "block") ? "none" : "block";
+  }
+}
+
+function toggleAllSoftSkills() {
+  const allDescriptions = document.querySelectorAll(".skill-description");
+  const allVisible = [...allDescriptions].every(p => p.style.display === "block");
+
+  allDescriptions.forEach(p => {
+    p.style.display = allVisible ? "none" : "block";
+  });
+
+  // Met à jour le texte du bouton
+  const btn = document.querySelector(".skills-toggle-btn");
+  if (btn) {
+    btn.textContent = allVisible ? "Afficher les détails" : "Masquer les détails";
+  }
+}
+
+/* Fin soft-skils */
+/* Début Experience */
+// Fonction pour basculer l'affichage d'une seule expérience (au clic sur la carte)
+function toggleExperience(card) {
+  const desc = card.querySelector(".experience-description");
+  if (desc) {
+    const isVisible = desc.style.display === "block";
+    desc.style.display = isVisible ? "none" : "block";
+  }
+}
+
+// Fonction pour afficher / masquer tous les détails en même temps via le bouton
+function toggleAllExperience() {
+  const allDesc = document.querySelectorAll(".experience-description");
+  const btn = document.querySelector(".experience-toggle-btn");
+
+  const isAnyVisible = Array.from(allDesc).some(desc => desc.style.display === "block");
+
+  allDesc.forEach(desc => {
+    desc.style.display = isAnyVisible ? "none" : "block";
+  });
+
+  btn.textContent = isAnyVisible ? "Afficher les détails" : "Masquer les détails";
+}
+
+// (Optionnel) Assure que les descriptions sont masquées au chargement
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".experience-description").forEach(desc => {
+    desc.style.display = "none";
+  });
+});
+
+ /* Fin Experience */ 
+/* début loisirs */
+function toggleLoisir(card) {
+  const desc = card.querySelector(".loisir-description");
+  desc.style.display = (desc.style.display === "block") ? "none" : "block";
+}
+
+function toggleAllLoisirs() {
+  const allDescriptions = document.querySelectorAll(".loisir-description");
+  const allVisible = [...allDescriptions].every(p => p.style.display === "block");
+
+  allDescriptions.forEach(p => {
+    p.style.display = allVisible ? "none" : "block";
+  });
+
+  const btn = document.querySelector(".loisirs-toggle-btn");
+  btn.textContent = allVisible ? "Afficher tous les détails" : "Masquer les détails";
+}
+
+/* Fin Loisirs */
+
+</script>
+</body>
+</html>
+
